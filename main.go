@@ -3,18 +3,16 @@ package main
 import (
 	"fmt"
 
-	"github.com/dahea-moon/learngo/accounts"
+	"github.com/dahea-moon/learngo/mydict"
+	// "github.com/dahea-moon/learngo/accounts"
 )
 
 func main() {
-	account := accounts.NewAccount("rachel")
-	account.Deposit(10)
-	fmt.Println(account.Balance())
-	err := account.Withdraw(20)
+	dictionary := mydict.Dictionary{"first": "First word"}
+	definition, err := dictionary.Search("first")
 	if err != nil {
 		fmt.Println(err)
+	} else {
+		fmt.Println(definition)
 	}
-	fmt.Println(account.Balance(), account.Owner())
-	account.ChangeOwner("new rachel")
-	fmt.Println(account)
 }
